@@ -34,7 +34,7 @@
 """Проблемы с одинарными кавычками в тексте"""
 # Решение --> SELECT 'It''s my life' AS song FROM dual;
 # Quote(q) оператор:
-# q'delimiter нащ текст с кавычками delimiter'
+# q'delimiter наш текст с кавычками delimiter'
 # SELECT q'<It's my life>' AS song FROM dual;
 
 """SELECT statement(не меняет данные)
