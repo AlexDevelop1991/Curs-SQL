@@ -46,5 +46,33 @@
 # SELECT * FROM employees WHERE first_name LIKE 'D%' AND salary > 10000;
 # SELECT * FROM employees WHERE first_name LIKE 'D%' AND salary BETWEEN 4000 AND 10000;
 
+"""OR(или)"""
+# Всё выражение примает значение TRUE тогда и только тогда,когда хотя бы одно из условий,объединённых OR,по отдельности тоже возвращает TRUE.
+# # SELECT * FROM employees WHERE first_name LIKE 'D%' OR salary > 10000;
 
+"""NOT(не)"""
+# Оператор NOT меняет значение условия на противоположное.
+# SELECT * FROM employees WHERE NOT job_id = 'ST_MAN';
+# SELECT * FROM employees WHERE last_name NOT LIKE 'K%';
+# SELECT * FROM employees WHERE job_id NOT IN ('ST_MAN', 'ST_CLERK');
+# SELECT * FROM employees WHERE salary NOT BETWEEN 5000 AND 6500;
+# SELECT * FROM employees WHERE commission_pct IS NOT NULL;
+# SELECT * FROM employees WHERE commission_pct IS NOT NULL AND last_name NOT LIKE '%n';
+
+""" SELECT Последовательность выполнения операторов"""
+# У оператора AND больше приоритета чем у OR.
+# SELECT * FROM employees WHERE first_name LIKE '__n%' AND commission_pct IS NULL OR  first_name LIKE 'A%' AND job_id = 'SA_REP';
+
+# ПРИОРИТЕТНОСТЬ           #ОПЕРАТОР
+# 1.                       ()
+# 2.                       /  *
+# 3.                       +  -
+# 4.                       ||
+# 5.                       =  >  <  >=  <=
+# 6.                       [NOT]LIKE, IS[NOT]NULL, [NOT]IN
+# 7.                       [NOT]BETWEEN
+# 8.                       !=  <>
+# 9.                       NOT
+# 10.                      AND
+# 11.                      OR
 
