@@ -2,7 +2,7 @@
          # TO_CHAR           # TO_DATE           # TO_NUMBER
 
 """TO_CHAR(number to char) возвращает нам тип VARCHAR2 """
-"""TO_CHAR(number, format mask, nls_parameters) = T """
+"""TO_CHAR(number, format mask, nls_parameters) = T(text) """
 # Конвертация числа в текст,используя функцию TO_CHAR означет взять число и сделать из него текст в том виде,в каком указан наш формат,если таковой имеется.
 
 # Элемент     # Описание                            # Формат               # Число      # Текст
@@ -20,7 +20,7 @@
 
 
 """TO_CHAR(date to char) возвращает нам тип VARCHAR2 """
-"""TO_CHAR(number, format mask, nls_parameters) = T """
+"""TO_CHAR(number, format mask, nls_parameters) = T(text) """
 #  Конвертация даты в текст,используя функцию TO_CHAR означет взять дату и сделать из неё текст в том виде,в каком указан наш формат,если таковой имеется.
 # SELECT hire_date, TO_CHAR(hire_date, 'Month', 'NLS_DATE_LANGUAGE = RUSSIAN') FROM employees;
 # SELECT hire_date, TO_CHAR(hire_date, 'fmMonth') || 'hello!' FROM employees; ---> fm убирает лишнии пробелы с имён,дней и месяцев.
@@ -59,3 +59,27 @@
 # TH               'DDth "of" Month'                              20th of September
 # SP               Буквенное написание(spell)'MmSP Month Yyyysp'  Nine September Two Thousand Nineteen
 # THSP или SPTH    Комбинация:'hh24SpTh'                          sixteenth
+
+"""TO_DATE(char to date)"""
+"""TO_DATE(text, format mask, nls_parameters) = D(data)"""
+# Конвертация текста в дату,используя функцию TO_DATE означает взять текст и объяснить в своём формате,где и как содержится информация о элементах даты в вашем тексте.
+# SELECT TO_DATE('18:40 2019!17-Sep', 'HH24:MI YYYY!DD-Mon') FROM dual;
+# SELECT TO_CHAR(TO_DATE('28-Sep-19 15:16:17', 'DD-Mon-RR HH24:MI:SS'), 'DD-Mon-RR HH24:MI:SS') FROM dual;
+# SELECT * FROM employees WHERE hire_date > TO_DATE('01-Jan-05', 'DD-Mon-RR');
+# SELECT TO_CHAR(TO_DATE('15?1987$17$18$19/09', 'hh24?YYYY$MI$SS$DD/mm'), 'dd-MON-yyyy hh24:mi:ss') as new_date FROM dual;
+
+"""TO_NUMBER(number to date)"""
+"""TO_NUMBER(text, format mask, nls_parameters) = N(number)"""
+# Конвертация текста в число,используя функцию TO_NUMBER означает взять текст и объяснить в своём формате,где и как содержится информация о элементах числа в вашем тексте.
+# SELECT TO_NUMBER('$4538.56', '$999999.999') FROM dual;
+# SELECT TO_NUMBER('<4832.34>', '99999.999PR') FROM dual;
+# SELECT TO_NUMBER('3.17', '99.9') FROM dual; Будет ошибка так как текст нельзя округлить.
+# SELECT TO_CHAR(3.17, '99.9') FROM dual; Здесь всё нормально так как число можно округлить.
+
+
+"""Nested(вложенные) single-row функции"""
+# SELECT TO_DATE('18-09-87', 'DD-MM-RR'), TO_CHAR(TO_DATE('18-09-87', 'DD-MM-RR'), 'Day'),LENGTH( TO_CHAR(TO_DATE('18-09-87', 'DD-MM-RR'), 'fmDay')) FROM dual;
+# SELECT first_name, NVL(SUBSTR(first_name, 6), 'Name is too short') FROM employees;
+# SELECT first_name, commission_pct, NVL(salary * commission_pct, 500) AS bonus FROM employees;
+
+
