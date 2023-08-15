@@ -11,7 +11,7 @@
 # SELECT first_name, NVL2(commission_pct, 'Yes commission', 'No commission') FROM employees;
 
 """NULLIF(value1,value2) NULL если, принимает два обязательных параметра, эта функция возвращает NULL если первый и
-второй параметры равны между собой,и возвращает первый параметр есои первый не равен второму параметру"""
+второй параметры равны между собой,и возвращает первый параметр если первый не равен второму параметру"""
 # SELECT NULLIF(18, 18) FROM dual;
 # SELECT NULLIF(17, 18) FROM dual;
 # SELECT NULLIF('18-SEP-87', '18/SEP/87') FROM dual;
