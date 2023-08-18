@@ -20,7 +20,7 @@
 
 
 """TO_CHAR(date to char) возвращает нам тип VARCHAR2 """
-"""TO_CHAR(number, format mask, nls_parameters) = T(text) """
+"""TO_CHAR(data, format mask, nls_parameters) = T(text) """
 #  Конвертация даты в текст,используя функцию TO_CHAR означет взять дату и сделать из неё текст в том виде,в каком указан наш формат,если таковой имеется.
 # SELECT hire_date, TO_CHAR(hire_date, 'Month', 'NLS_DATE_LANGUAGE = RUSSIAN') FROM employees;
 # SELECT hire_date, TO_CHAR(hire_date, 'fmMonth') || 'hello!' FROM employees; ---> fm убирает лишнии пробелы с имён,дней и месяцев.
