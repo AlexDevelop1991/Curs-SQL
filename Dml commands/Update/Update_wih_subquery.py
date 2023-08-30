@@ -10,4 +10,3 @@ WHERE column = subquery;"""
 # hire_date = (SELECT MIN(start_date) FROM job_history)
 # WHERE employee_id = 180;
 
-# 

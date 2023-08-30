@@ -7,5 +7,3 @@
 
 # INSERT INTO new_emps
 # (SELECT employee_id, first_name, hire_date, job_id FROM employees WHERE employee_id > 200);
-
-# 
