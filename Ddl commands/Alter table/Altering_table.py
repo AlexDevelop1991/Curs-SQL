@@ -17,6 +17,7 @@ DROP COLUMN column_name;"""
 
 """ALTER TABLE table_name
 SET UNUSED COLUMN column_name;"""
+
 """ALTER TABLE table_name DROP UNUSED COLUMNS;"""
 
 # ALTER TABLE students SET UNUSED COLUMN start_date;
